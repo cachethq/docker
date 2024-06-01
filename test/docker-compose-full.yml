@@ -11,8 +11,11 @@ services:
     restart: always
   cachet:
     image: ${DOCKER_REPO:-ghcr.io/cachethq/docker}:${APP_VERSION:-latest}
+    build:
+      context: ..
+      dockerfile: Dockerfile
     ports:
-      - 80:8000
+      - 8000:8000
     links:
       - postgres:postgres
     environment:

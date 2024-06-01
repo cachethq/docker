@@ -1,5 +1,9 @@
 FROM nginx:1.17.8-alpine
-
+LABEL org.opencontainers.image.description="Cachet is a beautiful and powerful open source status page system." \
+      org.opencontainers.image.authors="CachetHQ" \
+      org.opencontainers.image.url="https://cachethq.io" \
+      org.opencontainers.image.documentation="https://docs.cachethq.io" \
+      org.opencontainers.image.source="https://github.com/cachethq/cachet"
 EXPOSE 8000
 CMD ["/sbin/entrypoint.sh"]
 

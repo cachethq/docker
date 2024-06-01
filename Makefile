@@ -3,7 +3,7 @@ SILENT :
 
 update-dependencies:
 	docker pull curlimages/curl:latest
-	docker pull postgres:9.5
+	docker pull postgres:12-alpine
 
 test:
 	bats test

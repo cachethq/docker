@@ -5,11 +5,11 @@ load "lib/batslib"
 load "lib/output"
 
 @test "[$TEST_FILE] testing Cachet Docker image build" {
-  command docker-compose build --no-cache cachet
+  command docker-compose -f test/docker-compose-full.yml build --no-cache cachet
 }
 
 @test "[$TEST_FILE] testing Cachet docker-compose up" {
-  command docker-compose up -d
+  command docker-compose -f test/docker-compose-full.yml up -d
 }
 
 @test "[$TEST_FILE] check for container init" {
@@ -79,9 +79,9 @@ load "lib/output"
 }
 
 @test "[$TEST_FILE] restart cachet" {
-  command docker-compose stop cachet
-  command docker-compose rm -f cachet
-  command docker-compose up -d
+  command docker-compose -f test/docker-compose-full.yml stop cachet
+  command docker-compose -f test/docker-compose-full.yml rm -f cachet
+  command docker-compose -f test/docker-compose-full.yml up -d
   docker_wait_for_log docker_cachet_1 15 "INFO success: nginx entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)"
 }
 
